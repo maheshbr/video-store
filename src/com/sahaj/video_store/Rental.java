@@ -16,4 +16,11 @@ public class Rental extends DomainObject {
   public Tape tape() {
     return tape;
   }
+
+    public int frequentRenterPoints() {
+        if ((tape().movie().priceCode() == Movie.NEW_RELEASE) && daysRented() > 1) {
+            return 2;
+        }
+        return 1;
+    }
 }
